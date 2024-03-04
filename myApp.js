@@ -1,15 +1,24 @@
 let express = require('express');
 let app = express();
 let path = require('path');
+require('dotenv').config();
 
 // Mount the express.static() middleware
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 app.get('/json', function(req, res) {
+    let message = 'Hello json';
+  
+    // Check the value of the MESSAGE_STYLE environment variable
+    if (process.env.MESSAGE_STYLE === 'uppercase') {
+      message = message.toUpperCase();
+    }
+  
     let json = {
-      message: 'Hello json'
+      message: message
     };
+  
     res.json(json);
   });
 
