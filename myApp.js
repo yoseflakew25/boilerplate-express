@@ -1,22 +1,22 @@
-require('dotenv-flow').config();
 
 const express = require('express');
 const app = express();
 const path = require('path');
+require('dotenv').config();
 
 // Mount the express.static() middleware
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 app.get('/json', (req, res) => {
-  let message = 'Hello json';
+
 
   // Check the value of the MESSAGE_STYLE environment variable
-  if (process.env.MESSAGE_STYLE === 'uppercase') {
-    message = message.toUpperCase();
+  if (process.env["MESSAGE_STYLE"] == 'uppercase') {
+    res.json({ "message":"HELLO JSON" });
   }
 
-  res.json({ "message":message });
+  res.json({ "message":"Hello json" });
 });
 
 // Route handler for the root path
