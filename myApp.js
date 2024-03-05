@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -9,16 +8,12 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 console.log(process.env["MESSAGE_STYLE"]);
 
 app.get('/json', (request, response) => {
-
-
   // Check the value of the MESSAGE_STYLE environment variable
-  if (process.env.MESSAGE_STYLE == 'uppercase') {
-    response.json({ "message":"HELLO JSON" });
+  if (process.env.MESSAGE_STYLE === 'uppercase') {
+    response.json({ "message": "HELLO JSON" });
   } else {
-    response.json({ "message":"Hello json" });
-
+    response.json({ "message": "Hello json" });
   }
-
 });
 
 // Route handler for the root path
