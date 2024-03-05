@@ -16,7 +16,7 @@ app.get('/json', (req, res) => {
     message = message.toUpperCase();
   }
 
-  res.json({ message });
+  res.json({ "message":message });
 });
 
 // Route handler for the root path
