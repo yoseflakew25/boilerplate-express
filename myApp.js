@@ -5,7 +5,7 @@ require('dotenv').config();
 
 // Mount the express.static() middleware
 app.use('/public', express.static(path.join(__dirname, 'public')));
-console.log(process.env["MESSAGE_STYLE"]);
+
 
 app.get('/json', (request, response) => {
   // Check the value of the MESSAGE_STYLE environment variable
