@@ -20,9 +20,9 @@ app.get('/json', (req, res) => {
 });
 
 // Route handler for the root path
-// app.get('/', function(req, res) {
-//   let filePath = path.join(__dirname, 'views', 'index.html');
-//   res.sendFile(filePath);
-// });
+app.get('/', function(req, res) {
+  let filePath = path.join(__dirname, 'views', 'index.html');
+  res.sendFile(filePath);
+});
 
 module.exports = app;
